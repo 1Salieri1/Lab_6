@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace Example6
+{
+    class Example6_1
+    {
+        static void Main()
+        {
+            int i, j, temp;
+            string strValue;
+
+            int[,] jArray = new int[6, 4];
+            for (i = 0; i < 6; ++i)
+            {
+                for (j = 0; j < 4; ++j)
+                {
+                    strValue = Console.ReadLine();
+                    jArray[i, j] = Convert.ToInt32(strValue);
+                }
+            }
+
+            Console.WriteLine();
+            for (j = 0; j < 4; j++)
+            {
+                temp = jArray[1, j];
+                jArray[1, j] = jArray[4 - 1, j];
+                jArray[4 - 1, j] = temp;
+            }
+            for (i = 0; i < 6; ++i)
+            {
+                for (j = 0; j < 4; ++j)
+                {
+                    jArray[i, j] = jArray[i, j] * 10;
+                    Console.Write(" jArray[" + i + ", " + j + "] = " + jArray[i, j]);
+
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}
